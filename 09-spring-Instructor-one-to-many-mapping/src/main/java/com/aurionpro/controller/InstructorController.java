@@ -52,7 +52,7 @@ public class InstructorController {
 	@GetMapping("/getCoursebyInstructorId/{instructor_id}")
 	public List<Course> showCourse(@PathVariable Long instructor_id){
 		Instructor instructor = insRepo.findById(instructor_id).get();
-		return instructor.getCourses();
+		return instructor.getCourses();	
 	}
 	@GetMapping("/getInstructorByCourseId/{course_id}")
 	public Instructor showInstructor(@PathVariable Long course_id){

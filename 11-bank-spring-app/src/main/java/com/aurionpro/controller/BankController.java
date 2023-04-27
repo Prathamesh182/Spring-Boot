@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,25 +22,29 @@ public class BankController {
 
 	@Autowired
 	private BankService bankService;
-
+	
 	@PostMapping("/saveBank")
-	public ResponseEntity<String> saveBank(@RequestBody Bank bankData) {
+	public ResponseEntity<String> saveBank(@RequestBody Bank bankData){
 		return bankService.saveBank(bankData);
 	}
-
+	
 	@GetMapping("/getBankById/{bankId}")
-	public Bank getBank(@PathVariable Long bankId) {
+	public Bank getBankById(@PathVariable Long bankId){
 		return bankService.getBankById(bankId);
 	}
-
+	
 	@GetMapping("/getBanks")
-	public List<Bank> getBank(){
+	public List<Bank> getBanks(){
 		return bankService.getBanks();
 	}
 	
 	@PutMapping("/updateBankDetails")
-	public ResponseEntity<String> updateBankById(@RequestBody Bank bankData ) {
+	public ResponseEntity<String> updateBankDetails(@RequestBody Bank bankData){
 		return bankService.updateBankDetails(bankData);
 	}
 	
+	@PostMapping("/addAccount")
+	public ResponseEntity<String> addAccount(@RequestBody Bank bankData){
+		return bankService.addAccount(bankData);
+	}
 }

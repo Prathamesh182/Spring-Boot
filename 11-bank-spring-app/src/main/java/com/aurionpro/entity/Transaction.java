@@ -22,9 +22,13 @@ public class Transaction {
 	@Column(name = "transaction_no")
 	private Long transactionNo;
 
-	private String transactionType;
+	private Long sender;
+	private Long receiver;
+	//private String transactionType;
+	//private String transactionDetail;
 	private String transactionDate;
 	private double amount;
+	private double balance;
 
 	@ManyToOne
 	@JoinColumn(name = "fk_account_no")
@@ -35,13 +39,15 @@ public class Transaction {
 		super();
 	}
 
-	public Transaction(Long transactionNo, String transactionType, String transactionDate, double amount,
-			Accounts accounts) {
+	public Transaction(Long transactionNo, Long sender, Long receiver, String transactionDate, double amount,
+			double balance, Accounts accounts) {
 		super();
 		this.transactionNo = transactionNo;
-		this.transactionType = transactionType;
+		this.sender = sender;
+		this.receiver = receiver;
 		this.transactionDate = transactionDate;
 		this.amount = amount;
+		this.balance = balance;
 		this.accounts = accounts;
 	}
 
@@ -53,12 +59,20 @@ public class Transaction {
 		this.transactionNo = transactionNo;
 	}
 
-	public String getTransactionType() {
-		return transactionType;
+	public Long getSender() {
+		return sender;
 	}
 
-	public void setTransactionType(String transactionType) {
-		this.transactionType = transactionType;
+	public void setSender(Long sender) {
+		this.sender = sender;
+	}
+
+	public Long getReceiver() {
+		return receiver;
+	}
+
+	public void setReceiver(Long receiver) {
+		this.receiver = receiver;
 	}
 
 	public String getTransactionDate() {
@@ -77,6 +91,14 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	public double getBalance() {
+		return balance;
+	}
+
+	public void setBalance(double balance) {
+		this.balance = balance;
+	}
+
 	public Accounts getAccounts() {
 		return accounts;
 	}
@@ -84,11 +106,4 @@ public class Transaction {
 	public void setAccounts(Accounts accounts) {
 		this.accounts = accounts;
 	}
-
-	@Override
-	public String toString() {
-		return "Transaction [transactionNo=" + transactionNo + ", transactionType=" + transactionType
-				+ ", transactionDate=" + transactionDate + ", amount=" + amount + ", accounts=" + accounts + "]";
-	}
-
 }

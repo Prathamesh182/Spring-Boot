@@ -23,7 +23,7 @@ import jakarta.transaction.Transactional;
 public class Accounts {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "account_no")
 	private Long accountNo;
 
@@ -64,10 +64,6 @@ public class Accounts {
 		this.accountNo = accountNo;
 	}
 
-	
-
-	
-
 	public double getBalance() {
 		return balance;
 	}
@@ -100,10 +96,10 @@ public class Accounts {
 		this.transactions = transactions;
 	}
 
-	@Override
-	public String toString() {
-		return "Accounts [accountNo=" + accountNo +  ", balance=" + balance + ", bank=" + bank
-				+ ", customer=" + customer +  "]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Accounts [accountNo=" + accountNo + ", balance=" + balance + ", bank=" + bank + ", customer=" + customer
+//				+ ", transactions=" + transactions + "]";
+//	}
 
-	}
+}

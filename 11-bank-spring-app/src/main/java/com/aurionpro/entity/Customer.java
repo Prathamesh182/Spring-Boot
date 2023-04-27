@@ -85,10 +85,10 @@ public class Customer {
 		this.accounts = accounts;
 	}
 
-	@Override
-	public String toString() {
-		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
-				+ ", totalBalance=" + totalBalance +"]";
-	}
+//	@Override
+//	public String toString() {
+//		return "Customer [customerId=" + customerId + ", firstName=" + firstName + ", lastName=" + lastName
+//				+ ", totalBalance=" + totalBalance + ", accounts=" + accounts + "]";
+//	}
 
 }
